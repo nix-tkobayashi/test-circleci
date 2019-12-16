@@ -3,11 +3,7 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run:
-        yum install -y docker
-      - run:
-        docker build -t $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/nginx-sample-webapp:$CIRCLE_SHA1 .
-      - run:
-        docker run -d -p 80:80 --name nginx-sample-webapp $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/nginx-sample-webapp:$CIRCLE_SHA1; sleep 10
-      - run:
-        ./deploy.sh
+      - run: yum install -y docker
+      - run: docker build -t $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/nginx-sample-webapp:$CIRCLE_SHA1 .
+      - run: docker run -d -p 80:80 --name nginx-sample-webapp $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/nginx-sample-webapp:$CIRCLE_SHA1; sleep 10
+      - run: ./deploy.sh
