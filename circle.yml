@@ -1,12 +1,9 @@
 jobs:
   build:
-    machine:
-      services:
-        - docker
-
-    dependencies:
-      post:
-        - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/nginx-sample-webapp:$CIRCLE_SHA1 .
+    machine: true
+    steps:
+      - run:
+        docker build -t $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/nginx-sample-webapp:$CIRCLE_SHA1 .
 
     test:
       post:
