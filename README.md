@@ -19,3 +19,5 @@ Additionally, an EC2 Container Service cluster and EC2 Container Registry must a
 on AWS. See the [EC2 Container Service Resources](https://aws.amazon.com/ecs/) and 
 [ECS Container Registry Resources](https://aws.amazon.com/ecr/) to get started. You will also need to update the cluster and 
 task family names in deploy.sh to match your cluster.
+
+.
